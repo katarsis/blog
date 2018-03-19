@@ -22,7 +22,7 @@ public class PersistenceConfiguration {
     @Bean(destroyMethod = "close", name = "blogDatasource")
     public HikariDataSource getDataSource() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://@ec2-54-247-111-19.eu-west-1.compute.amazonaws.com:5432/ddc6eem9uqs3sc");
+        config.setJdbcUrl("jdbc:postgresql://ec2-54-247-111-19.eu-west-1.compute.amazonaws.com:5432/ddc6eem9uqs3sc");
         config.setPassword("4198cb76c261f98d29f448aabca00b6fcb29f6466c0b32fc5897b789dfb11b35");
         config.setUsername("gmuoygokkyqcvl");
 
