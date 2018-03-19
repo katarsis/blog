@@ -23,7 +23,7 @@ public class PersistenceConfiguration {
     public HikariDataSource getDataSource() {
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgres://gmuoygokkyqcvl:4198cb76c261f98d29f448aabca00b6fcb29f6466c0b32fc5897b789dfb11b35@ec2-54-247-111-19.eu-west-1.compute.amazonaws.com:5432/ddc6eem9uqs3sc");
-        config.setDriverClassName("org.postgresql.ds.PGSimpleDataSource");
+        config.setDriverClassName("org.postgresql.Driver");
         config.setAutoCommit(true);
 
         return new HikariDataSource(config);
