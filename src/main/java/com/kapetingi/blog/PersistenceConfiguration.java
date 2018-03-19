@@ -33,7 +33,7 @@ public class PersistenceConfiguration {
     }
 
     @Primary
-    @Bean (name = "pgateEntityManager")
+    @Bean (name = "blogEntityManager")
     LocalContainerEntityManagerFactoryBean entityManagerFactory(@Qualifier("blogDatasource") DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
