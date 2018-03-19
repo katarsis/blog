@@ -43,6 +43,7 @@ public class PersistenceConfiguration {
         Properties jpaProperties = new Properties();
 
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        jpaProperties.put("hibernate.hbm2ddl.auto", "update");
         //jpaProperties.put("hibernate.show_sql","true");
 
 
