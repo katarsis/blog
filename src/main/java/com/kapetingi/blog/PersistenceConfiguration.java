@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories(entityManagerFactoryRef = "blogEntityManager", basePackages = {"com.kapetingi.blog.entities"})
+@EnableJpaRepositories(entityManagerFactoryRef = "blogEntityManager", basePackages = {"com.kapetingi.blog.entities","com.kapetingi.blog.repositories"})
 public class PersistenceConfiguration {
 
     @Primary
