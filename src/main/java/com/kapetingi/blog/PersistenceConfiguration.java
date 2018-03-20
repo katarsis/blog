@@ -4,6 +4,7 @@ package com.kapetingi.blog;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -18,13 +19,22 @@ import java.util.Properties;
 @EnableJpaRepositories(entityManagerFactoryRef = "blogEntityManager", basePackages = {"com.kapetingi.blog.entities","com.kapetingi.blog.repositories"})
 public class PersistenceConfiguration {
 
+    @Value("${com.kapetingi.blog.postgre.url}")
+    private String jdbcUrl;
+
+    @Value("${com.kapetingi.blog.postgre.password}")
+    private String password;
+
+    @Value("${com.kapetingi.blog.postgre.user}")
+    private String user;
+
     @Primary
     @Bean(destroyMethod = "close", name = "blogDatasource")
     public HikariDataSource getDataSource() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://ec2-54-247-111-19.eu-west-1.compute.amazonaws.com:5432/ddc6eem9uqs3sc");
-        config.setPassword("4198cb76c261f98d29f448aabca00b6fcb29f6466c0b32fc5897b789dfb11b35");
-        config.setUsername("gmuoygokkyqcvl");
+        config.setJdbcUrl(jdbcUrl);
+        config.setPassword(password);
+        config.setUsername(user);
 
         config.setDriverClassName("org.postgresql.Driver");
         config.setAutoCommit(true);
@@ -44,7 +54,7 @@ public class PersistenceConfiguration {
 
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         jpaProperties.put("hibernate.hbm2ddl.auto", "create");
-        jpaProperties.put("hibernate.show_sql","true");
+        //jpaProperties.put("hibernate.show_sql","true");
 
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);

@@ -31,8 +31,8 @@ public class BlogApplication {
 		this.builder = builder;
 		this.userRepository = userRepository;
 		if(userRepository.count() == 0) {
-			userRepository.save(new User("user", "admin", Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
-			userRepository.save(new User("user1", "admin", Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
+			userRepository.save(new User("user", "$2a$10$8bpdlCMQemCYNtXEJxeZu.ZK/W5At2iCtvAVi9vb31tYLO80Yc2eC", Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
+			userRepository.save(new User("user1", "$2a$10$8bpdlCMQemCYNtXEJxeZu.ZK/W5At2iCtvAVi9vb31tYLO80Yc2eC", Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
 		}
 		builder.userDetailsService(customerDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	}
