@@ -6,10 +6,8 @@ import com.kapetingi.blog.entities.User;
 import com.kapetingi.blog.repositories.UserRepository;
 import com.kapetingi.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +39,12 @@ public class UserController {
     @GetMapping(value = "users")
     public List<User> getAllUsers(){
         return userRepository.findAll();
+    }
+
+
+    @GetMapping(value ="/getUsername")
+    public String getUsername(){
+        return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
 }
