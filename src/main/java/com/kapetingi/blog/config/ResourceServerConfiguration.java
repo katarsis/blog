@@ -20,7 +20,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.resourceId("web");
+        resources.resourceId("oath2-resource");
+        //resources.tokenExtractor(new CustomTokenExtractor());
     }
+
 
 }

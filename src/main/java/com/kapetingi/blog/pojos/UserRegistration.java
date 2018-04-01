@@ -1,4 +1,4 @@
-package com.arocketman.github.pojos;
+package com.kapetingi.blog.pojos;
 
 public class UserRegistration {
 

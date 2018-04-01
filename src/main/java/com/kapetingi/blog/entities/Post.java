@@ -18,7 +18,7 @@ public class Post {
 
     private String title;
     private String body;
-    private LocalDateTime dateCreate;
+    private LocalDateTime dateCreated;
 
     @ManyToOne
     private User creator;

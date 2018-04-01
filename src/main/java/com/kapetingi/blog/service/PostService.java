@@ -20,8 +20,8 @@ public class PostService {
     }
 
     public void insert(Post post) {
-        if(post.getDateCreate() == null){
-            post.setDateCreate(LocalDateTime.now());
+        if(post.getDateCreated() == null){
+            post.setDateCreated(LocalDateTime.now());
         }
         postRepository.save(post);
     }
@@ -30,4 +30,19 @@ public class PostService {
      return postRepository.findByCreatorId(user.getId());
     }
 
+    public Post getPost(Long id) {
+        return postRepository.findOne(id);
+    }
+
+    public boolean deletePost(Long id) {
+        Post thePost = postRepository.findOne(id);
+        if(thePost == null)
+            return false;
+        postRepository.delete(id);
+        return true;
+    }
+
+    public Post find(Long postId) {
+        return postRepository.findOne(postId);
+    }
 }
